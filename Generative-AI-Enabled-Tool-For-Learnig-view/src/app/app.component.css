@@ -1,0 +1,40 @@
+/**
+ * Custom CSS για το BlockUI
+ */
+.toitsu-blockui {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  text-align: center;
+  font-weight: bold;
+  user-select: none;
+}
+
+.toitsu-blockui i {
+  margin-bottom: 1rem;
+}
+
+@keyframes moveUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.25rem);
+  }
+}
+
+.move-up-down-effect {
+  background-color: transparent;
+  position: relative;
+  animation: moveUpDown 0.75s ease-in-out infinite;
+}
+
+.move-up-down-effect:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.move-up-down-effect:nth-child(3) {
+  animation-delay: 0.50s;
+}

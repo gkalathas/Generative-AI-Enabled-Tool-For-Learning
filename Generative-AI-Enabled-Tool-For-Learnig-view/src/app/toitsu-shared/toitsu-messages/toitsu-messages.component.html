@@ -1,0 +1,49 @@
+<span *ngFor="let item of model;">
+
+  <!--- Απλό Μήνυμα --->
+  <ng-container [ngSwitch]="getHtmlTag(item)" *ngIf="!item.inPanel && item.condition">
+    <div *ngSwitchCase="'div'" [ngClass]="{'message-container animation-duration-200 flip': true}" [class]="getMessageStyleClassBySeverity(item.severity)">
+      &nbsp;{{item.message | translate}}
+    </div>
+    <span *ngSwitchCase="'span'" [ngClass]="{'message-container animation-duration-200 flip': true}" [class]="getMessageStyleClassBySeverity(item.severity)">
+      &nbsp;{{item.message | translate}}
+    </span>
+    <p *ngSwitchCase="'p'" [ngClass]="{'message-container animation-duration-200 flip': true}" [class]="getMessageStyleClassBySeverity(item.severity)">
+      &nbsp;{{item.message | translate}}
+    </p>
+    <small *ngSwitchCase="'small'" [ngClass]="{'message-container animation-duration-200 flip': true}" [class]="getMessageStyleClassBySeverity(item.severity)">
+      &nbsp;{{item.message | translate}}
+    </small>
+    <h6 *ngSwitchCase="'h6'" [ngClass]="{'message-container animation-duration-200 flip': true}" [class]="getMessageStyleClassBySeverity(item.severity)">
+      &nbsp;{{item.message | translate}}
+    </h6>
+    <!-- Add more cases as needed -->
+    <p *ngSwitchDefault [ngClass]="{'message-container animation-duration-200 flip': true}" [class]="getMessageStyleClassBySeverity(item.severity)">
+      &nbsp;{{item.message | translate}}
+    </p>
+  </ng-container>
+
+  <!--- Μήνυμα σε Panel --->
+  <ng-container [ngSwitch]="getHtmlTag(item)" *ngIf="item.inPanel && item.condition">
+    <div *ngSwitchCase="'div'" [ngClass]="{'panel-message-container animation-duration-200 flip': true}" [class]="getPanelMessageStyleClassBySeverity(item.severity)">
+      {{item.message | translate}}
+    </div>
+    <span *ngSwitchCase="'span'" [ngClass]="{'panel-message-container animation-duration-200 flip': true}" [class]="getPanelMessageStyleClassBySeverity(item.severity)">
+      {{item.message | translate}}
+    </span>
+    <p *ngSwitchCase="'p'" [ngClass]="{'panel-message-container animation-duration-200 flip': true}" [class]="getPanelMessageStyleClassBySeverity(item.severity)">
+      {{item.message | translate}}
+    </p>
+    <small *ngSwitchCase="'small'" [ngClass]="{'panel-message-container animation-duration-200 flip': true}" [class]="getPanelMessageStyleClassBySeverity(item.severity)">
+      {{item.message | translate}}
+    </small>
+    <h6 *ngSwitchCase="'h6'" [ngClass]="{'panel-message-container col-12 animation-duration-200 flip': true}" [class]="getPanelMessageStyleClassBySeverity(item.severity)">
+      {{item.message | translate}}
+    </h6>
+    <!-- Add more cases as needed -->
+    <p *ngSwitchDefault [ngClass]="{'panel-message-container animation-duration-200 flip': true}" [class]="getPanelMessageStyleClassBySeverity(item.severity)">
+      {{item.message | translate}}
+    </p>
+  </ng-container>
+
+</span>

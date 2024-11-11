@@ -1,0 +1,247 @@
+<form>
+  <div class="grid">
+    <div class="col-12 md:col-6 col-offset-3 button-container flex-container">
+      <div class="flex-container-start">
+        
+        <button *ngIf="!test && !suggestions && !loginPanelDisplayed && !registerPanelDisplayed" pButton type="button" pRipple label="{{'Generate Test' | translate}}" class="p-button-warning"
+                icon="fa fa-table" iconPos="left" (click)="generateTest()">
+        </button>
+        <button *ngIf="test && !suggestions && !loginPanelDisplayed && !registerPanelDisplayed" pButton type="button" pRipple label="{{'Evaluate Test' | translate}}" class="p-button-success"
+                icon="fa fa-table" iconPos="left" (click)="evaluateTest()">
+        </button>
+        <button *ngIf="!loginPanelDisplayed && !registerPanelDisplayed && (test || suggestions)" pButton type="button" pRipple label="{{'New Test' | translate}}" class="p-button-info"
+                icon="fa fa-plus" iconPos="left" (click)="generateNewTest()">
+        </button>
+        <button *ngIf="!loginPanelDisplayed && !registerPanelDisplayed" pButton type="button" pRipple label="{{'Back to Login' | translate}}"
+                class="p-button-help" icon="fa fa-table" iconPos="left" (click)="goToLogin()">
+        </button>
+        <button *ngIf="!loginPanelDisplayed && !registerPanelDisplayed" pButton type="button" pRipple label="{{'Set Chat Model' | translate}}"
+                class="p-button-info" icon="fa fa-cogs" iconPos="left" (click)="changeModel()">
+        </button>
+      </div>
+      <div class="flex-container-end">
+      
+      </div>
+    </div>
+  </div>
+  <div class="grid">
+    
+    <div class="col-12 md:col-6 p-fluid col-offset-3">
+      
+      <p-panel header="{{'Login Page' | translate}}" *ngIf="loginPanelDisplayed && !registerPanelDisplayed">
+        
+        <div class="grid">
+          <div class="col-12 p-fluid">
+            
+            <div class="grid align-items-center">
+              <label class="col-12 sm:col-4">{{'Username' | translate}}</label>
+              <div class="col-12 sm:col-8">
+                <input type="text" pInputText [(ngModel)]="username" [ngModelOptions]="{standalone:true}" name="username">
+              </div>
+            </div>
+            
+            <div class="grid align-items-center">
+              <label class="col-12 sm:col-4">{{'Password' | translate}}</label>
+              <div class="col-12 sm:col-8">
+                <input type="text" pInputText [(ngModel)]="password" [ngModelOptions]="{standalone:true}" name="password">
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="grid">
+          <div class="col-12 button-container p-inputgroup flex justify-content-center">
+            <button pButton type="button" pRipple label="{{'Login' | translate}}"
+                    class="p-button-info" icon="pi pi-sign-in" iconPos="left" (click)="login()">
+            </button>
+            <button pButton type="button" pRipple label="{{'Register' | translate}}"
+                    class="p-button-warning" icon="pi pi-user-plus" iconPos="left" (click)="goToRegister()">
+            </button>
+          
+          </div>
+        </div>
+        
+      </p-panel>
+      
+      <p-panel header="{{'Register Page' | translate}}" *ngIf="!loginPanelDisplayed && registerPanelDisplayed">
+        
+        <div class="grid">
+          <div class="col-12 p-fluid">
+            
+            <div class="grid align-items-center">
+              <label class="col-12 sm:col-4">{{'Username' | translate}}</label>
+              <div class="col-12 sm:col-8">
+                <input type="text" pInputText [(ngModel)]="user.username" name="user.username">
+              </div>
+            </div>
+            
+            <div class="grid align-items-center">
+              <label class="col-12 sm:col-4">{{'Password' | translate}}</label>
+              <div class="col-12 sm:col-8">
+                <input type="text" pInputText [(ngModel)]="user.password" name="user.password">
+              </div>
+            </div>
+            
+            <div class="grid align-items-center">
+              <label class="col-12 sm:col-4">{{'Last Name' | translate}}</label>
+              <div class="col-12 sm:col-8">
+                <input type="text" pInputText [(ngModel)]="user.lastName" name="user.lastName">
+              </div>
+            </div>
+            
+            <div class="grid align-items-center">
+              <label class="col-12 sm:col-4">{{'First Name' | translate}}</label>
+              <div class="col-12 sm:col-8">
+                <input type="text" pInputText [(ngModel)]="user.firstName" name="user.firstName">
+              </div>
+            </div>
+            
+            <div class="grid align-items-center">
+              <label class="col-12 sm:col-4">{{'First Email' | translate}}</label>
+              <div class="col-12 sm:col-8">
+                <input type="text" pInputText [(ngModel)]="user.email" name="user.email">
+              </div>
+            </div>
+            
+            <div class="grid align-items-center">
+              <label class="col-12 sm:col-4">{{'Phone' | translate}}</label>
+              <div class="col-12 sm:col-8">
+                <input type="text" pInputText [(ngModel)]="user.phone" name="user.phone">
+              </div>
+            </div>
+            
+          </div>
+          
+        </div>
+        
+        <div class="grid">
+          <div class="col-12 button-container p-inputgroup flex justify-content-end">
+            <button pButton type="button" pRipple label="{{'Back' | translate}}"
+                    class="p-button-help" icon="fa fa-table" iconPos="left" (click)="goToLogin()">
+            </button>
+            <button pButton type="button" pRipple label="{{'Register' | translate}}"
+                    class="p-button-success" icon="pi pi-save" iconPos="left" (click)="register()">
+            </button>
+          
+          </div>
+        </div>
+      
+      </p-panel>
+      
+      <p-panel header="{{'Students Info' | translate}}" *ngIf="!test && !suggestions && !loginPanelDisplayed && !registerPanelDisplayed">
+        
+        <div class="grid align-items-center">
+          <label class="col-12 sm:col-4">{{'First Name' | translate}}</label>
+          <div class="col-12 sm:col-8">
+            <input type="text" pInputText [(ngModel)]="studentInfo.firstName" name="firstName">
+          </div>
+        </div>
+        
+        <div class="grid align-items-center">
+          <label class="col-12 sm:col-4">{{'Last Name' | translate}}</label>
+          <div class="col-12 sm:col-8">
+            <input type="text" pInputText [(ngModel)]="studentInfo.lastName" name="lastName">
+          </div>
+        </div>
+        
+        <div class="grid align-items-center">
+          <label class="col-12 sm:col-4">{{'Email' | translate}}</label>
+          <div class="col-12 sm:col-8">
+            <input type="text" pInputText [(ngModel)]="studentInfo.email" name="email">
+          </div>
+        </div>
+        
+        <div class="grid align-items-center">
+          <label class="col-12 sm:col-4">{{'Phone' | translate}}</label>
+          <div class="col-12 sm:col-8">
+            <input type="text" pInputText [(ngModel)]="studentInfo.phone" name="phone">
+          </div>
+        </div>
+        
+        <div class="grid align-items-center">
+          <label class="col-12 sm:col-4">{{'School' | translate}}</label>
+          <div class="col-12 sm:col-8">
+            <input type="text" pInputText [(ngModel)]="studentInfo.school" name="school">
+          </div>
+        </div>
+        
+        <div class="grid align-items-center">
+          <label class="col-12 sm:col-4">{{'Department' | translate}}</label>
+          <div class="col-12 sm:col-8">
+            <input type="text" pInputText [(ngModel)]="studentInfo.department" name="department">
+          </div>
+        </div>
+        
+        <div class="grid align-items-center">
+          <label class="col-12 sm:col-4 font-bold">{{'Education Level' | translate}}</label>
+          <div class="col-12 sm:col-8">
+            <p-dropdown [(ngModel)]="studentInfo.educationLevel"  name="educationLevel"
+                        [options]="educationLevels" optionValue="value" optionLabel="label"
+                        placeholder="{{'global.selectOption' | translate}}" emptyMessage="{{'global.noResultsFound' | translate}}"
+                        emptyFilterMessage="{{'global.noResultsFound' | translate}}" [filter]="true" [showClear]="true">
+            </p-dropdown>
+          </div>
+        </div>
+        
+        <div class="grid align-items-center">
+          <label class="col-12 sm:col-4 font-bold">{{'Schools Academic Year' | translate}}</label>
+          <div class="col-12 sm:col-8">
+            <p-inputNumber [(ngModel)]="studentInfo.academicYear" [ngModelOptions]="{standalone: true}" [useGrouping]="false" [min]="1" [max]="12"></p-inputNumber>
+          </div>
+        </div>
+        
+      </p-panel>
+      
+      <p-panel header="{{'Evaluation Test' | translate}}" *ngIf="test && !suggestions && !loginPanelDisplayed && !registerPanelDisplayed">
+        
+        <div class="container">
+          <h1>Fill Out Your Test</h1>
+          <p-panel header="Multiple Choice Questions" *ngIf="test.multiple_choice_questions">
+            <div *ngFor="let question of test.multiple_choice_questions; let i = index">
+              <div>{{question.question}}</div> <!--{{i + 1}}.-->
+              <div *ngFor="let option of question.options">
+                <p-radioButton name="option{{i}}" value="{{option}}" [(ngModel)]="studentAnswers.multiple_choice_answers[i + 1]">
+                
+                </p-radioButton> {{option}}
+                
+              </div>
+              <p-divider></p-divider>
+            </div>
+          </p-panel>
+          <p-panel header="Elaboration Questions" *ngIf="test.elaboration_questions">
+            <div *ngFor="let question of test.elaboration_questions; let i = index">
+              <div>{{question.question}}</div><!--{{i + 1}}.-->
+              <textarea pInputTextarea appToitsuCapitalize rows="4" cols="50" [(ngModel)]="studentAnswers.elaboration_answers[i + 1]" name="studentAnswers{{i+1}}.elaboration_answers"></textarea>
+              <p-divider></p-divider>
+            </div>
+          </p-panel>
+        </div>
+        
+      </p-panel>
+      
+      <p-panel header="{{'Evaluation Details' | translate}}" *ngIf="suggestions && evaluation && !loginPanelDisplayed && !registerPanelDisplayed">
+        <div class="container">
+          <h1>Evaluation Results</h1>
+          <p-panel header="Total Score">
+            <p>Total score as a percentage: {{ evaluation.totalScore }}%</p>
+          </p-panel>
+          
+          <p-panel header="Areas of Weakness" *ngIf="evaluation.areasOfWeakness.length">
+            <ul>
+              <li *ngFor="let weakness of evaluation.areasOfWeakness">{{ weakness }}</li>
+            </ul>
+          </p-panel>
+          
+          <p-panel header="Suggestions for Improvement" *ngIf="evaluation.suggestionsForImprovement.length">
+            <ul>
+              <li *ngFor="let suggestion of evaluation.suggestionsForImprovement">{{ suggestion }}</li>
+            </ul>
+          </p-panel>
+        </div>
+      
+      </p-panel>
+    </div>
+  </div>
+
+</form>

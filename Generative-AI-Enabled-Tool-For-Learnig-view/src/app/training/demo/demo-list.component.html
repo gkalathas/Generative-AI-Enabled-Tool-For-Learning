@@ -1,0 +1,49 @@
+<div class="grid">
+  <div class="col-12 button-container flex-container">
+    <div class="flex-container-start">
+      <div class="grid">
+        <div class="col-12 button-container">
+          <button pButton type="submit" pRipple label="{{'global.search' | translate}}" class="p-button-warning"
+                  icon="fa fa-search" iconPos="left" (click)="loadTableData()">
+          </button>
+          <button pButton type="button" pRipple label="{{'global.newRecord' | translate}}" class="p-button-info"
+                  icon="fa fa-plus" iconPos="left" (click)="newRecord()">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid">
+
+  <div class="col-12 md:col-6">
+
+    <p-table [value]="allDemos" [tableStyle]="{ 'min-width': '50rem' }">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>{{'demo.lastName' | translate}}</th>
+          <th>{{'demo.firstName' | translate}}</th>
+          <th>{{'demo.birthDate' | translate}}</th>
+          <th>{{'demo.profession' | translate}}</th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td>{{ product.lastName }}</td>
+          <td>{{ product.firstName }}</td>
+          <td>{{ product.birthDate | date:'dd/MM/yyyy' }}</td>
+          <td>{{ product.profession }}</td>
+          <td>
+            <a href="{{viewLink}}/{{product.id}}" target="_blank" pTooltip="{{'global.edit' | translate}}" tooltipPosition="right">
+              <i class="fa fa-edit"></i>
+            </a>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+  </div>
+
+</div>

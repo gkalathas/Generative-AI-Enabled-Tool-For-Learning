@@ -1,0 +1,15 @@
+{
+  "developer": "Developer",
+  "plumber": "Plumber",
+  "militaryOfficer": "Military Officer",
+  "couchSampler": "Couch Sampler",
+
+  "demo.details": "Details",
+  "demo.firstName": "First Name",
+  "demo.lastName": "Last Name",
+  "demo.profession": "Profession",
+  "demo.birthDate": "Birth Date",
+  
+  "demo.startingPage": "Starting Page",
+  "demo.welcome": "Welcome"
+}

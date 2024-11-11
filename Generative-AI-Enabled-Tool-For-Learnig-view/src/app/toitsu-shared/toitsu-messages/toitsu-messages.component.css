@@ -1,0 +1,10 @@
+.message-container {
+  padding-left: 2px;
+  padding-top: 10px;
+}
+
+.panel-message-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

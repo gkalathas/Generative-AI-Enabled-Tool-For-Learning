@@ -1,0 +1,15 @@
+{
+  "group.training": "Εκπαίδευση",
+
+  "training.demo": "Demo",
+  "training.demo.new": "Νέο Demo",
+  "training.demo.edit": "Επεξεργασία Demo",
+
+  "training.customer": "Πελάτες",
+  "training.customer.new": "Νέος Πελάτης",
+  "training.customer.edit": "Επεξεργασία Πελάτη",
+
+  "training.supportAgent": "Αντιπρόσωποι Υποστήριξης",
+  "training.supportAgent.new": "Νέος Αντιπρόσωπος Υποστήριξης",
+  "training.supportAgent.edit": "Επεξεργασία Αντιπροσώπου Υποστήριξης"
+}

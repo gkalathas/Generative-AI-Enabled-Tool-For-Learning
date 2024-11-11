@@ -1,0 +1,15 @@
+{
+  "group.training": "Training",
+
+  "training.demo": "Demo",
+  "training.demo.new": "New Demo",
+  "training.demo.edit": "Edit Demo",
+
+  "training.customer": "Customers",
+  "training.customer.new": "New Customer",
+  "training.customer.edit": "Edit Customer",
+
+  "training.supportAgent": "Support Agents",
+  "training.supportAgent.new": "New Support Agent",
+  "training.supportAgent.edit": "Edit Support Agent"
+}

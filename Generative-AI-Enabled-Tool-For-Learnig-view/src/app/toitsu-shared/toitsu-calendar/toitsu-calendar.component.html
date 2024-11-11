@@ -1,0 +1,20 @@
+<p-calendar *ngIf="controlName" formControlName="{{controlName}}" name="{{name}}" (onSelect)="onSelect()" (onBlur)="onBlur()"
+            dateFormat="dd/mm/yy" [showTime]="showTime" hourFormat="24" dataType="string"
+            [showOnFocus]="!disabled" [showIcon]="!disabled && !noIcon" icon="fa fa-calendar" [disabled]="disabled"
+            pCalendarMask [showPlaceholder]="true" appendTo="body" inputId="{{inputId}}" (onShow)="datepickerShown()" (onClose)="datepickerClosed()">
+</p-calendar>
+
+<div class="display-flex align-items-start" *ngIf="!controlName">
+  <p-calendar [(ngModel)]="model" name="{{name}}" (onSelect)="onSelect()" (onBlur)="onBlur()" (keyup.enter)="onKeyUpEnter()" (keyup.space)="onKeyUpSpace()"
+              dateFormat="dd/mm/yy" [showTime]="showTime" hourFormat="24" dataType="string" [showButtonBar]="true" (onClearClick)="onClearClick()"
+              [showOnFocus]="!disabled" [showIcon]="!disabled && !noIcon && !model" icon="fa fa-calendar" [disabled]="disabled" (onFocus)="onFocus($event)"
+              pCalendarMask [showPlaceholder]="true" appendTo="body" inputId="{{inputId}}" (onShow)="datepickerShown()" (onClose)="datepickerClosed()"
+              class="width-100percent" [inputStyleClass]="(model && !disabled) ? 'toitsu-custom-input' : ''"
+              todayButtonStyleClass="toitsu-calendar-today-button" clearButtonStyleClass="toitsu-calendar-clear-button">
+  </p-calendar>
+  <button pButton type="button" #customClearButton *ngIf="model && !disabled"
+          class="p-button-danger toitsu-custom-button" icon="fa fa-times" tabindex="-1"
+          pTooltip="{{'global.clear' | translate}}" (click)="clearDate()">
+  </button>
+</div>
+

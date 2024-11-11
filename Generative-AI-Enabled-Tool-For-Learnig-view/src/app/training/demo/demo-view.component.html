@@ -1,0 +1,61 @@
+<div class="grid">
+  <div class="col-12 button-container flex-container">
+    <div class="flex-container-start">
+      <button pButton type="button" pRipple
+              label="{{'demo.startingPage' | translate}}" class="p-button-info"
+              icon="fa fa-home" iconPos="left" (click)="goToStartingPage()">
+      </button>
+      <button pButton type="button" pRipple
+              label="{{'global.index' | translate}}" class="p-button-help"
+              icon="fa fa-table" iconPos="left" (click)="goToList()">
+      </button>
+      <button pButton type="button" pRipple *ngIf="showInfoButton()"
+              class="p-button-warning" label="{{'demo.info' | translate}}"
+              icon="fa fa-info" iconPos="left" (click)="showDemoDetails()">
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="grid">
+  
+  <div class="col-12 md:col-6 p-fluid">
+    
+    <p-panel header="{{'demo.details' | translate}}" toggleable="true">
+      
+      <div class="grid align-items-center">
+        <label class="col-12 sm:col-4">{{'demo.firstName' | translate}}</label>
+        <div class="col-12 sm:col-8">
+          <input type="text" pInputText [(ngModel)]="demo.firstName" appToitsuCapitalize>
+        </div>
+      </div>
+      
+      <div class="grid align-items-center">
+        <label class="col-12 sm:col-4">{{'demo.lastName' | translate}}</label>
+        <div class="col-12 sm:col-8">
+          <input type="text" pInputText [(ngModel)]="demo.lastName" appToitsuCapitalize>
+        </div>
+      </div>
+      
+      <div class="grid align-items-center">
+        <label class="col-12 sm:col-4">{{'demo.profession' | translate}}</label>
+        <div class="col-12 sm:col-8">
+          <p-dropdown [(ngModel)]="demo.profession" [options]="professions" optionValue="value" optionLabel="label"
+                      placeholder="{{'global.selectOption' | translate}}"
+                      emptyMessage="{{'global.noResultsFound' | translate}}" emptyFilterMessage="{{'global.noResultsFound' | translate}}"
+                      [showClear]="true">
+          </p-dropdown>
+        </div>
+      </div>
+      
+      <div class="grid align-items-center">
+        <label class="col-12 sm:col-4">{{'demo.birthDate' | translate}}</label>
+        <div class="col-12 sm:col-8">
+          <app-toitsu-calendar [(model)]="demo.birthDate"></app-toitsu-calendar>
+        </div>
+      </div>
+      
+    </p-panel>
+  
+  </div>
+</div>

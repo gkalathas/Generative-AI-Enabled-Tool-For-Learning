@@ -1,0 +1,34 @@
+.toitsu-go-to-top-container {
+  position: fixed;
+  bottom: 4%;
+  right: 1%;
+}
+
+.toitsu-go-to-top-button {
+  width: 2rem !important;
+  height: 2rem !important;
+  border: 1px solid transparent !important;
+  font-size: 1rem !important;
+  text-align: center !important;
+  align-items: center !important;
+  justify-content: center !important;
+  filter: drop-shadow(0 2px 1px rgb(0 0 0 / .25)) !important;
+  background-image:
+    linear-gradient(to bottom, purple, rebeccapurple, mediumpurple),
+    linear-gradient(to bottom, purple, rebeccapurple) !important;
+  background-clip: padding-box, border-box !important;
+  background-origin: padding-box, border-box !important;
+  box-shadow:
+    inset 0 1px rgb(255 255 255 / .25),
+    inset 0 -1px rgb(0 0 0 / .1),
+    0 2px 4px rgb(0 0 0 / .25) !important;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out !important;
+}
+
+.toitsu-go-to-top-button:active {
+  transform: scale(0.5);
+}
+
+.toitsu-go-to-top-button:hover {
+  box-shadow: 0 0 1rem mediumpurple !important;
+}

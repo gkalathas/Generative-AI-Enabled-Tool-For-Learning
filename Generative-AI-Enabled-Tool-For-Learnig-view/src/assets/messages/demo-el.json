@@ -1,0 +1,16 @@
+{
+  "developer": "Προγραμματιστής",
+  "plumber": "Υδραυλικός",
+  "militaryOfficer": "Στρατιωτικός",
+  "couchSampler": "Δοκιμαστής Καναπέδων",
+
+  "demo.details": "Λεπτομέρειες",
+  "demo.firstName": "Όνομα",
+  "demo.lastName": "Επώνυμο",
+  "demo.profession": "Επάγγελμα",
+  "demo.birthDate": "Ημερομηνία Γέννησης",
+  "demo.info": "Πληροφορίες",
+  
+  "demo.startingPage": "Αρχική",
+  "demo.welcome": "Καλώς Ήρθατε"
+}
